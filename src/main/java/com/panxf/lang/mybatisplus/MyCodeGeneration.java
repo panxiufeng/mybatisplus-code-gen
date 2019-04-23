@@ -33,7 +33,7 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.config.rules.PropertyInfo;
 
 /**
- * @ClassName: CodeGeneration
+ * @ClassName: CodeGeneration  3.0.2
  * @Description: TODO
  * @Author panxiufeng
  * @Date 2019/4/21下午5:31
@@ -46,7 +46,7 @@ public class MyCodeGeneration {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
 //        gc.setOutputDir("/data/");
-        gc.setOutputDir("D://mybatisplus/");
+        gc.setOutputDir("D://mybatisplus-codegen/");
         gc.setFileOverride(true);
         gc.setActiveRecord(false);// 不需要ActiveRecord特性的请改为false
         gc.setEnableCache(false);// XML 二级缓存
@@ -69,7 +69,7 @@ public class MyCodeGeneration {
         dsc.setDbType(DbType.MYSQL);
         dsc.setTypeConvert(new MySqlTypeConvert(){
             // 自定义数据库表字段类型转换【可选】
-            public PropertyInfo processTypeConvert(GlobalConfig globalConfig,String fieldType) {
+            public PropertyInfo processTypeConvert(GlobalConfig globalConfig, String fieldType) {
 //                System.out.println("转换类型：" + fieldType);
 //                if ( fieldType.toLowerCase().contains("tinyint")&& fieldType.length()==1 ) {
 //                    return DbColumnType.BOOLEAN;
@@ -82,19 +82,23 @@ public class MyCodeGeneration {
             }
         });
         dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("123456");
-        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/panxf_user");
+//        dsc.setUsername("root");
+//        dsc.setPassword("123456");
+//        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/panxf_user");
+        dsc.setUsername("dev");
+        dsc.setPassword("wdphdev2018");
+        dsc.setUrl("jdbc:mysql://10.53.156.240:3306/panxf_user");
         mpg.setDataSource(dsc);
 
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setTablePrefix(new String[] { "user_" });// 此处可以修改为您的表前缀
+//        strategy.setTablePrefix(new String[] { "user_" });// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[] { "user_personal_info" }); // 需要生成的表
+        strategy.setInclude(new String[] { "user_menu_info", "user_organ_info", "user_organ_relation", "user_personal_info", "user_role_info", "user_role_permission_relation", "user_role_relation" }); // 需要生成的表
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setRestControllerStyle(true);//生成 @RestController 控制器
         strategy.setControllerMappingHyphenStyle(false);//驼峰转连字符
+
 
         //strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");//自定义继承的Controller类全称，带包名
         //strategy.setSuperEntityColumns("id");//自定义基础的Entity类，公共字段
@@ -107,7 +111,7 @@ public class MyCodeGeneration {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.panxf.user.dal.dao");
+        pc.setParent("com.panxf.user.dal");
         pc.setController("controller");
         pc.setService("service");
         pc.setServiceImpl("serviceImpl");
