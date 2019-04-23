@@ -29,11 +29,11 @@ import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
+import com.baomidou.mybatisplus.generator.config.rules.IColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-import com.baomidou.mybatisplus.generator.config.rules.PropertyInfo;
 
 /**
- * @ClassName: CodeGeneration  3.0.2
+ * @ClassName: CodeGeneration
  * @Description: TODO
  * @Author panxiufeng
  * @Date 2019/4/21下午5:31
@@ -61,7 +61,7 @@ public class MyCodeGeneration {
         gc.setServiceImplName("%sServiceImpl");
         gc.setMapperName("%sMapper");
         gc.setXmlName("%sMapper");
-        gc.setEntityName("%sEntity");
+//        gc.setEntityName("%sEntity");
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
@@ -69,7 +69,7 @@ public class MyCodeGeneration {
         dsc.setDbType(DbType.MYSQL);
         dsc.setTypeConvert(new MySqlTypeConvert(){
             // 自定义数据库表字段类型转换【可选】
-            public PropertyInfo processTypeConvert(GlobalConfig globalConfig, String fieldType) {
+            public IColumnType processTypeConvert(GlobalConfig globalConfig, String fieldType) {
 //                System.out.println("转换类型：" + fieldType);
 //                if ( fieldType.toLowerCase().contains("tinyint")&& fieldType.length()==1 ) {
 //                    return DbColumnType.BOOLEAN;
@@ -98,7 +98,6 @@ public class MyCodeGeneration {
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setRestControllerStyle(true);//生成 @RestController 控制器
         strategy.setControllerMappingHyphenStyle(false);//驼峰转连字符
-
 
         //strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");//自定义继承的Controller类全称，带包名
         //strategy.setSuperEntityColumns("id");//自定义基础的Entity类，公共字段
