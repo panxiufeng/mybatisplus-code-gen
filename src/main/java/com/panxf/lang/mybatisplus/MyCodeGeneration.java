@@ -51,7 +51,7 @@ public class MyCodeGeneration {
         gc.setActiveRecord(false);// 不需要ActiveRecord特性的请改为false
         gc.setEnableCache(false);// XML 二级缓存
         gc.setBaseResultMap(true);// XML ResultMap
-        gc.setBaseColumnList(false);// XML columList
+        gc.setBaseColumnList(true);// XML columList
         //gc.setKotlin(true);//是否生成 kotlin 代码
         gc.setAuthor("panxiufeng");// 作者
 
