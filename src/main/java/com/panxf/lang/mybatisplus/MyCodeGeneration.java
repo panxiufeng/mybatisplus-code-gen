@@ -54,6 +54,7 @@ public class MyCodeGeneration {
         gc.setBaseColumnList(true);// XML columList
         //gc.setKotlin(true);//是否生成 kotlin 代码
         gc.setAuthor("panxiufeng");// 作者
+//        gc.setIdType(IdType.AUTO);
 
         // 自定义文件命名，注意 %s 会自动填充表实体属性！
         gc.setControllerName("%sController");
@@ -94,7 +95,8 @@ public class MyCodeGeneration {
         StrategyConfig strategy = new StrategyConfig();
 //        strategy.setTablePrefix(new String[] { "user_" });// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[] { "user_menu_info", "user_organ_info", "user_organ_relation", "user_personal_info", "user_role_info", "user_role_permission_relation", "user_role_relation" }); // 需要生成的表
+//        strategy.setInclude(new String[] { "user_role_permission" }); // 需要生成的表
+        strategy.setInclude(new String[] { "user_menu_info", "user_organ_info", "user_organ_relation", "user_personal_info", "user_role_info", "user_role_permission", "user_role_relation" }); // 需要生成的表
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setRestControllerStyle(true);//生成 @RestController 控制器
         strategy.setControllerMappingHyphenStyle(false);//驼峰转连字符
