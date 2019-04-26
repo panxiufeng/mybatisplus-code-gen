@@ -45,8 +45,8 @@ public class MyCodeGeneration {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
-//        gc.setOutputDir("/data/");
-        gc.setOutputDir("D://mybatisplus-codegen/");
+        gc.setOutputDir("/data/");
+//        gc.setOutputDir("D://mybatisplus-codegen/");
         gc.setFileOverride(true);
         gc.setActiveRecord(false);// 不需要ActiveRecord特性的请改为false
         gc.setEnableCache(false);// XML 二级缓存
@@ -83,12 +83,12 @@ public class MyCodeGeneration {
             }
         });
         dsc.setDriverName("com.mysql.jdbc.Driver");
-//        dsc.setUsername("root");
-//        dsc.setPassword("123456");
-//        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/panxf_user");
-        dsc.setUsername("dev");
-        dsc.setPassword("wdphdev2018");
-        dsc.setUrl("jdbc:mysql://10.53.156.240:3306/panxf_user");
+        dsc.setUsername("root");
+        dsc.setPassword("123456");
+        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/panxf_user");
+//        dsc.setUsername("dev");
+//        dsc.setPassword("wdphdev2018");
+//        dsc.setUrl("jdbc:mysql://10.53.156.240:3306/panxf_user");
         mpg.setDataSource(dsc);
 
         // 策略配置
@@ -96,7 +96,7 @@ public class MyCodeGeneration {
 //        strategy.setTablePrefix(new String[] { "user_" });// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
 //        strategy.setInclude(new String[] { "user_role_permission" }); // 需要生成的表
-        strategy.setInclude(new String[] { "user_menu_info", "user_organ_info", "user_organ_relation", "user_personal_info", "user_role_info", "user_role_permission", "user_role_relation" }); // 需要生成的表
+        strategy.setInclude(new String[] { "user_menu_info", "user_organ_info", "user_staff_info", "user_base_info", "user_role_info", "user_role_permission", "user_role_relation" }); // 需要生成的表
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setRestControllerStyle(true);//生成 @RestController 控制器
         strategy.setControllerMappingHyphenStyle(false);//驼峰转连字符
