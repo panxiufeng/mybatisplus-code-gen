@@ -95,8 +95,8 @@ public class MyCodeGeneration {
         StrategyConfig strategy = new StrategyConfig();
 //        strategy.setTablePrefix(new String[] { "user_" });// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-//        strategy.setInclude(new String[] { "user_role_permission" }); // 需要生成的表
-        strategy.setInclude(new String[] { "user_menu_info", "user_organ_info", "user_staff_info", "user_base_info", "user_role_info", "user_role_permission", "user_role_relation" }); // 需要生成的表
+        strategy.setInclude(new String[] { "user_role_info" }); // 需要生成的表
+//        strategy.setInclude(new String[] { "user_menu_info", "user_organ_info", "user_staff_info", "user_base_info", "user_role_info", "user_role_permission", "user_role_relation" }); // 需要生成的表
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setRestControllerStyle(true);//生成 @RestController 控制器
         strategy.setControllerMappingHyphenStyle(false);//驼峰转连字符
